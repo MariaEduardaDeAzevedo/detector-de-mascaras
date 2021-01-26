@@ -1,8 +1,8 @@
 # Reconhecendo máscaras
 
-<div align="center" width=500>
-    <img src="./assets/gif-mascara.gif">
-</>
+<p align="center">
+    <img src="./assets/gif-mascara.gif" width=500/>
+<p/>
 
 Este repositório contém um script em Python3 que reconhece se um rosto está ou não portando uma máscara!
 
