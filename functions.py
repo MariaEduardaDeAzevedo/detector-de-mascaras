@@ -65,9 +65,9 @@ def knn(X_train, y_train):
     Modelo K-Nearest Neighbors
     '''
     grid_params = {
-    "n_neighbors": [3, 5, 11, 19, 23],
+    "n_neighbors": [2, 3, 5, 11, 19, 23],
     "weights": ["uniform", "distance"],
-    "metric": ["euclidean", "manhatam"]
+    "metric": ["euclidean", "manhattam", "cosine"]
     }
 
     knn_model = GridSearchCV(KNeighborsClassifier(), grid_params, refit=True)
