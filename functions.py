@@ -5,7 +5,8 @@ import os
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
+import warnings
+
 
 def load_dataframe():
     '''
@@ -61,13 +62,15 @@ def pca_model(X_train):
 
 
 def knn(X_train, y_train):
+
+    warnings.filterwarnings("ignore")
     '''
     Modelo K-Nearest Neighbors
     '''
     grid_params = {
-    "n_neighbors": [2, 3, 5, 11, 19, 23],
+    "n_neighbors": [2, 3, 5, 11, 19, 23, 29],
     "weights": ["uniform", "distance"],
-    "metric": ["euclidean", "manhattam", "cosine"]
+    "metric": ["euclidean", "manhattam", "cosine", "l1", "l2"]
     }
 
     knn_model = GridSearchCV(KNeighborsClassifier(), grid_params, refit=True)

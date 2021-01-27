@@ -33,7 +33,7 @@ while True:
     
     #Transformando a imagem em escala de cinza
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-
+    
     #Detectando faces na imagem
     faces = classifier.detectMultiScale(gray)
 
