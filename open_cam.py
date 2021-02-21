@@ -4,7 +4,7 @@ import os
 
 cam = cv.VideoCapture(0) #Iniciando a WebCam
 file_name = "haarcascade_frontalface_alt2.xml"
-classifier = cv.CascadeClassifier(cv.haarcascades + os.sep + file_name) #Modelo para reconhecer faces
+classifier = cv.CascadeClassifier(f"{cv.haarcascades}{os.sep}{file_name}") #Modelo para reconhecer faces
 
 dataframe = functions.load_dataframe() #Carregando dataframe com as imagens para treinamento
 
