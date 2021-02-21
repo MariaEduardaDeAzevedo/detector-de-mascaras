@@ -19,21 +19,21 @@ def load_dataframe():
         "IMAGEM": [],
     }
 
-    com_mascara = os.listdir("imagens/maskon")
-    sem_mascara = os.listdir("imagens/maskoff")
+    com_mascara = os.listdir("imagens" + os.sep + "maskon")
+    sem_mascara = os.listdir("imagens" + os.sep + "maskoff")
 
     for arquivo in com_mascara:
-        dados["ARQUIVO"].append(f"imagens/maskon/{arquivo}")
+        dados["ARQUIVO"].append("imagens" + os.sep + "maskon" + os.sep + arquivo)
         dados["ROTULO"].append(f"Com mascara")
         dados["ALVO"].append(1)
-        img = cv.cvtColor(cv.imread(f"imagens/maskon/{arquivo}"), cv.COLOR_BGR2GRAY).flatten()
+        img = cv.cvtColor(cv.imread("imagens" + os.sep+ "maskon" + os.sep + arquivo), cv.COLOR_BGR2GRAY).flatten()
         dados["IMAGEM"].append(img)
         
     for arquivo in sem_mascara:
-        dados["ARQUIVO"].append(f"imagens/maskoff/{arquivo}")
+        dados["ARQUIVO"].append("imagens" + os.sep + "maskoff" + os.sep + arquivo)
         dados["ROTULO"].append(f"Sem mascara")
         dados["ALVO"].append(0)
-        img = cv.cvtColor(cv.imread(f"imagens/maskoff/{arquivo}"), cv.COLOR_BGR2GRAY).flatten()
+        img = cv.cvtColor(cv.imread("imagens" + os.sep + "maskoff" + os.sep + arquivo), cv.COLOR_BGR2GRAY).flatten()
         dados["IMAGEM"].append(img)
         
     dataframe = pd.DataFrame(dados)
