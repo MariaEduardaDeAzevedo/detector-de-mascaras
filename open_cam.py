@@ -8,11 +8,11 @@ classifier = cv.CascadeClassifier(f"{cv.haarcascades}{os.sep}{file_name}") #Mode
 
 dataframe = functions.load_dataframe() #Carregando dataframe com as imagens para treinamento
 
-X_train, X_test, y_train, y_test = functions.train_test(dataframe) #Dividindo conjuntos de treino e teste
+X_train, y_train = functions.train_test(dataframe) #Dividindo conjuntos de treino e teste
 pca = functions.pca_model(X_train) #Modelo PCA para extração de features da imagem
 
 X_train = pca.transform(X_train) #Conjunto de treino com features extraídas
-X_test = pca.transform(X_test) #Conjunto de teste com features extraídas
+#X_test = pca.transform(X_test) #Conjunto de teste com features extraídas
 
 knn = functions.knn(X_train, y_train) #Treinando modelo classificatório KNN
 

@@ -13,13 +13,17 @@ O conjunto de imagens utilizadas para o treinamento do modelo pode ser encontrad
 
 #### Mais sobre o código
 
-Em [open_cam.py](./open_cam.py) temos um script que viabiliza que a webcam do seu computador seja iniciada. 
+1) Modo com detecção facial
+Em [open_cam.py](./open_cam.py) (com detecção facial) e em [open_cam_no_face_detection.py](./open_cam_no_face_detection.py) (sem detecção facial) temos scripts que viabilizam que a webcam do seu computador seja iniciada. 
 
-Nesse script carregamos um dataframe partindo do conjunto de imagens que temos e treinamos um modelo [K-Nearest Neighbor](https://medium.com/brasil-ai/knn-k-nearest-neighbors-1-e140c82e9c4e) para classificar os rostos.
+Nesses scripts carregamos um dataframe partindo do conjunto de imagens que temos e treinamos um modelo [K-Nearest Neighbor](https://medium.com/brasil-ai/knn-k-nearest-neighbors-1-e140c82e9c4e) para classificar os rostos.
 
-Para o reconhecimento genérico das faces, utiliza-se o [CascadeClassifier](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html), já incluso dentro da biblioteca do OpenCV. De modo geral, esse método de treinamento utiliza de um arquivo .xml, que também já é incluso no pacote, para treinar um modelo que reconheça rostos de forma genérica, utilizando o método [Viola-Jones](https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework) e [AdaBoost](https://towardsdatascience.com/boosting-algorithm-adaboost-b6737a9ee60c) para o melhoramento do desempenho.
+Para a detecção das faces, utiliza-se o [CascadeClassifier](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html), já incluso dentro da biblioteca do OpenCV. De modo geral, esse método de treinamento utiliza de um arquivo .xml, que também já é incluso no pacote, para treinar um modelo que reconheça rostos de forma genérica, utilizando o método [Viola-Jones](https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework) e [AdaBoost](https://towardsdatascience.com/boosting-algorithm-adaboost-b6737a9ee60c) para o melhoramento do desempenho.
 
 O algoritmo de Machine Learning escolhido para classificação foi o K-Nearest Neighbor, pois foi o que apresentou melhor desempenho diante o conjunto de teste e de validação. A ideia é que, em um próximo experimento, esse mesmo código possa ser refeito utilizando uma CNN!
+
+>  **Modo de detecção facial e modo sem detecção facial**
+Por conta de uma issue acerca de um vício em máscaras claras e também uma dificuldade do OpenCV detectar faces quando as tonalidades das máscaras são mais escuras foi proposta essa divisão de modos. O modo [DETECÇÃO FACIAL](open_cam.py) utiliza uma solução do OpenCV para identificar a face na imagem, enquanto o modo [SEM DETECÇÃO FACIAL](open_cam_no_face_detection.py) pede que o usuário centralize seu rosto na imagem para que a classificação seja realizada. 
 
 #### Alguns links
 
