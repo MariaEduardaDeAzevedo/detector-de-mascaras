@@ -13,7 +13,6 @@ O conjunto de imagens utilizadas para o treinamento do modelo pode ser encontrad
 
 #### Mais sobre o código
 
-1) Modo com detecção facial
 Em [open_cam.py](./open_cam.py) (com detecção facial) e em [open_cam_no_face_detection.py](./open_cam_no_face_detection.py) (sem detecção facial) temos scripts que viabilizam que a webcam do seu computador seja iniciada. 
 
 Nesses scripts carregamos um dataframe partindo do conjunto de imagens que temos e treinamos um modelo [K-Nearest Neighbor](https://medium.com/brasil-ai/knn-k-nearest-neighbors-1-e140c82e9c4e) para classificar os rostos.
